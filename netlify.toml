@@ -1,0 +1,6 @@
+[build]
+  command = "uvx marimo export html-wasm authors.py --no-show-code -o dist/index.html"
+  publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
