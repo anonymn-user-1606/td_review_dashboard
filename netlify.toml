@@ -1,5 +1,5 @@
 [build]
-  command = "uvx marimo export html-wasm authors.py --no-show-code -o dist/index.html"
+  command = "curl -LsSf https://astral.sh/uv/install.sh | sh && $HOME/.local/bin/uvx marimo export html-wasm authors.py --no-show-code -o dist/index.html"
   publish = "dist"
 
 [build.environment]
