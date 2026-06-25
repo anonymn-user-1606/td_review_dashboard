@@ -94,6 +94,7 @@ def data_loading(pd):
     df2["cluster_number"] = df2["cluster_number"].astype(str)
     df2["cluster_number"] = df2["cluster_number"].str[:-2]
     df2.loc[df2["cluster_number"].isna(), "cluster_number"] = "no cluster assigned"
+    df2["Year"] = df2["Year"].astype(str)
 
     #Getting the eids into a list
     eids2 = df2["EID"].tolist()
@@ -633,7 +634,7 @@ def interactive_network(alt, df_change, mo, nx, pd, references_df, top10_df):
         shape="independent"
     ).properties(
         title="Citation Network — Top 10 Referenced Papers",
-        width=600,
+        width=500,
         height=500
     ).interactive()
 
@@ -743,8 +744,8 @@ def _(selector):
 def _(mo, result, v4_interactive_chart):
     mo.hstack([
         v4_interactive_chart,
-        mo.Html(f'<div style="height:600px; overflow-y:auto; padding-right:8px;">{mo.as_html(result).text}</div>')
-    ], widths="equal")
+        mo.Html(f'<div style="height:600px; overflow-y:auto; overflow-x:auto; padding-right:8px;">{mo.as_html(result).text}</div>')
+    ])
     return
 
 
