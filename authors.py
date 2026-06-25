@@ -197,6 +197,8 @@ def top_10_cited_df(pd, references_df):
 
     # Drop the dirty columns and merge canonical values back
     top10_df = top10_df.drop(columns=["title", "author", "year"]).merge(first_values, on="cite_to", how="left")
+    top10_df["year"] = top10_df["year"].astype(str)
+    top10_df["year"] = top10_df["year"].str[:-2]
     return (top10_df,)
 
 
